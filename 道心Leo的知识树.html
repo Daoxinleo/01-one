@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道心Leo的知识树</title>
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --accent-color: #8E44AD;
+            --text-color: #34495E;
+        }
+
+        body {
+            font-family: 'Segoe UI', '微软雅黑', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.8;
+            margin: 0;
+            padding: 2rem;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3rem;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .knowledge-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .knowledge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.2);
+        }
+
+        .card-number {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* 动态装饰元素 */
+        .decorate-circle {
+            position: absolute;
+            background: rgba(142, 68, 173, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .knowledge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">道心Leo的知识树</h1>
+        </header>
+        
+        <div class="knowledge-grid">
+            <div class="knowledge-card">
+                <div class="card-number">①</div>
+                <h2 class="card-title">源</h2>
+                <p>万物起始之基点，探索知识的根本源头</p>
+            </div>
+
+            <div class="knowledge-card">
+                <div class="card-number">②</div>
+                <h2 class="card-title">局</h2>
+                <p>系统思维的框架，构建认知的宏观图景</p>
+            </div>
+
+            <div class="knowledge-card">
+                <div class="card-number">③</div>
+                <h2 class="card-title">势</h2>
+                <p>动态变化的规律，把握趋势的演进脉络</p>
+            </div>
+
+            <div class="knowledge-card">
+                <div class="card-number">④</div>
+                <h2 class="card-title">道</h2>
+                <p>底层逻辑的演绎，理解世界的运行法则</p>
+            </div>
+
+            <div class="knowledge-card">
+                <div class="card-number">⑤</div>
+                <h2 class="card-title">术</h2>
+                <p>方法论的实践，掌握具体的应用技艺</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 动态生成装饰元素
+        function createDecorations() {
+            const container = document.querySelector('.container');
+            for (let i = 0; i < 8; i++) {
+                const circle = document.createElement('div');
+                circle.className = 'decorate-circle';
+                circle.style.width = Math.random() * 100 + 50 + 'px';
+                circle.style.height = circle.style.width;
+                circle.style.left = Math.random() * 90 + '%';
+                circle.style.top = Math.random() * 90 + '%';
+                container.appendChild(circle);
+            }
+        }
+        createDecorations();
+    </script>
+</body>
+</html>
